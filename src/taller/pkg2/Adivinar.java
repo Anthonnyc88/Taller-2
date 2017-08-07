@@ -117,16 +117,18 @@ public class Adivinar extends javax.swing.JFrame {
         
          while (intento <= maximo) {
               if (a == numero) {
-                  mostrar.setText("Adivino el numero");
-                intento = intento + 1;
+               mostrar.setText("Adivino el numero");
+                intento = intento - 1;
+                Intentos.setText("Le quedan" + intento);
+                
                 break;
               }
               else if (a != numero){
-                  intento = intento +1;
+                  intento = intento -1;
                   Intentos.setText("Le quedan" + intento);
               }
               else if (a != numero){
-                  intento = intento +1;
+                  intento = intento -1;
                    Intentos.setText("Le quedan" + intento);
               }
               else if(intento > maximo){
