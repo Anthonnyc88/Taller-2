@@ -6,6 +6,7 @@
 package taller.pkg2;
 
 import java.util.Random;
+import static java.util.logging.Logger.global;
 
 /**
  *
@@ -16,6 +17,8 @@ public class Adivinar extends javax.swing.JFrame {
     /**
      * Creates new form Adivinar
      */
+    int num;
+
     public Adivinar() {
         initComponents();
     }
@@ -37,6 +40,9 @@ public class Adivinar extends javax.swing.JFrame {
         bntAgregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         genera = new javax.swing.JTextField();
+        bntNumero = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        mostrar1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,48 +65,80 @@ public class Adivinar extends javax.swing.JFrame {
 
         jLabel2.setText("Numero");
 
+        bntNumero.setText("Agregar");
+        bntNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntNumeroActionPerformed(evt);
+            }
+        });
+
+        mostrar1.setColumns(20);
+        mostrar1.setRows(5);
+        jScrollPane4.setViewportView(mostrar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bntAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(genera))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bntAgregar)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(genera, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(bntNumero)))
+                        .addGap(92, 92, 92)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(145, 145, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(235, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(145, 145, 145)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(bntAgregar)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(121, 121, 121)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(genera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bntAgregar)))
+                        .addGap(18, 18, 18)
+                        .addComponent(bntNumero)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel1)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(241, Short.MAX_VALUE)))
         );
 
         pack();
@@ -108,41 +146,49 @@ public class Adivinar extends javax.swing.JFrame {
 
     private void bntAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAgregarActionPerformed
         // TODO add your handling code here:   
-         int numero;
+
         Random rnd = new Random();
-        int a = rnd.nextInt(10) + 1;
-        numero= Integer.parseInt(genera.getText());
-        int intento = 0;
-        int maximo = 3;
-        
-         while (intento <= maximo) {
-              if (a == numero) {
-               mostrar.setText("Adivino el numero");
-                intento = intento - 1;
-                Intentos.setText("Le quedan" + intento);
-                
-                break;
-              }
-              else if (a != numero){
-                  intento = intento -1;
-                  Intentos.setText("Le quedan" + intento);
-              }
-              else if (a != numero){
-                  intento = intento -1;
-                   Intentos.setText("Le quedan" + intento);
-              }
-              else if(intento > maximo){
-                  mostrar.setText("Has perdido");
-                  
-              }
-                else{
-                  mostrar.setText("Has perdido");
-                        
-                        }
-         }
-         
-        
+        num = rnd.nextInt(10) + 1;
+        mostrar1.setText(String.valueOf(num));
+
+
     }//GEN-LAST:event_bntAgregarActionPerformed
+
+    private void bntNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNumeroActionPerformed
+        // TODO add your handling code here:
+        int numero;
+        int intento = 0;
+
+        if (intento < 3) {
+            numero = Integer.parseInt(genera.getText());
+            if (numero == num) {
+                mostrar.setText("Adivino el numero :" + numero);
+                Intentos.setText("Le quedan :" + intento);
+            } else if (numero != num) {
+                intento = intento + 1;
+                Intentos.setText("Fallo le queda :" + intento);
+
+            } else if (numero != num) {
+                intento = intento + 1;
+                Intentos.setText("Fallo le queda :" + intento);
+                
+
+            }
+            
+            else if (numero== intento){
+                 mostrar.setText("Has perdido");
+                
+            }
+            
+            
+            else {
+                mostrar.setText("Has perdido");
+
+            }
+        }
+
+
+    }//GEN-LAST:event_bntNumeroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,11 +228,14 @@ public class Adivinar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Intentos;
     private javax.swing.JButton bntAgregar;
+    private javax.swing.JButton bntNumero;
     private javax.swing.JTextField genera;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea mostrar;
+    private javax.swing.JTextArea mostrar1;
     // End of variables declaration//GEN-END:variables
 }
