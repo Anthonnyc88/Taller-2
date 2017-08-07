@@ -99,9 +99,10 @@ public class Matriz extends javax.swing.JFrame {
 
     private void bntColumnasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntColumnasActionPerformed
         // TODO add your handling code here:
-         String strMatriz="";
+        String strMatriz="";
         int numero1;
         int numero2;
+        int  numero =5;
          Random rnd = new Random();
          int[][] matriz;
         
@@ -111,9 +112,8 @@ public class Matriz extends javax.swing.JFrame {
         for(int f=0;f<matriz.length;f++) {
             for(int c=0;c<matriz[f].length;c++) {
                 matriz[f][c]= Integer.parseInt(filas.getText() + columnas.getText());
-                matriz[f][c] = rnd.nextInt(50);
-                 strMatriz +=(matriz[f][c] + " ");
-        
+                matriz[f][c] = rnd.nextInt(20);
+                strMatriz +=(matriz[f][c] + " ");
             }
              strMatriz += "\n";
         }
